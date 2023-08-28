@@ -12,7 +12,6 @@ const Item = ({ title, description, category, id }) => {
                 text={"warning"}
                 bg={"primary"}
                 className='cardProductos'>
-
                 <Card.Body>
                     <Card.Title>{title}</Card.Title>
                     <Card.Text>

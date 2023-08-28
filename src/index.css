@@ -1,5 +1,5 @@
 * {
-  color: #ffffff !important;
+  color: #000000 !important;
 }
 
 .logo {
@@ -60,7 +60,54 @@
   background-color: #343a40 !important;
 }
 
+.pPrecio {
+  text-align: center;
+  font-weight: 700;
+}
+
+.pStock {
+  text-align: center;
+  font-weight: 700;
+}
+
 .botonCard {
   background-color: #ffffff !important;
   color: #343a40 !important;
+  border: none;
+  padding: 1px 5px 5px 5px;
 }
+
+.cardContador {
+  margin-left: 0px;
+  background-color: #343a40 !important;
+  border: none;
+  color: black !important;
+}
+
+.tituloContador {
+  margin: auto;
+}
+
+.botonCount {
+  background-color: #343a40;
+  border: none;
+  margin: 5%;
+}
+
+.botonTerminar {
+  background-color: #ffffff !important;
+  color: black !important;
+}
+
+.pCarrito {
+  color: black !important;
+}
+
+.thCarrito {
+  color: black !important;
+}
+
+.tdCarrito {
+  color: black !important;
+}
+

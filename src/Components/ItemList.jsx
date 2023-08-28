@@ -13,7 +13,6 @@ const ItemList = ({ productos }) => {
                         title={p.title}
                         description={p.description}
                         category={p.category}
-                        stock={p.stock}
                     />
                 )
             })}
@@ -21,4 +20,4 @@ const ItemList = ({ productos }) => {
     )
 }
 
-export default ItemList
+export default React.memo(ItemList)

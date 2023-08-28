@@ -1,9 +1,25 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import Loader from './Loader'
+import ItemListContainer from './ItemListContainer'
 
 const Home = () => {
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false);
+        }, 1500);
+    }, []);
+
     return (
         <>
-            <h1 className="h1Home" >Bienvenidos a "El Sol Piletas"</h1>
+        {
+            loading ? 
+            <Loader/>
+            : 
+            <ItemListContainer/>
+        }
+
         </>
     )
 }
