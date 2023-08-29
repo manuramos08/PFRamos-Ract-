@@ -39,11 +39,12 @@ return (
         {productosFiltrados.map((p) => {
             return (
                 <Card style={{ width: '18rem' }}
-                    className="cardProductos"
+                    className="cardProducto"
                     key={p.id}>
                     <div >
-                        <Card.Body>
+                        <Card.Body className='cardBodyProducto'>
                             <Card.Title>{p.title}</Card.Title>
+                            <Card.Img variant="top" src={p.img} className='imgCard'/>
                             <Card.Text>
                                 {p.description}
                             </Card.Text>
@@ -51,6 +52,7 @@ return (
                                 $
                                 {" " + p.precio}
                             </Card.Text>
+                            <div className='contador'>
                             {
                                 cantidadAgregada > 0 ?
                                     (<div className='text-center'>
@@ -64,6 +66,7 @@ return (
                                     (<ItemCount stock={p.stock} initial={1} onAdd={manejoOnAdd}
                                         producto={[p.id, p.title, p.precio]} cantidadAgregada={cantidadAgregada} />)
                             }
+                            </div>
                         </Card.Body>
                     </div>
                 </Card>

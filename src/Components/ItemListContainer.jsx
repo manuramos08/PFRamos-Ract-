@@ -2,6 +2,7 @@ import ItemList from './ItemList';
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import {collection, getDocs, getFirestore} from "firebase/firestore"
+import Loader from './Loader';
 
 
 const ItemListContainer = () => {
@@ -9,6 +10,8 @@ const ItemListContainer = () => {
     const { category } = useParams()
 
     const [productos, setProductos] = useState([])
+
+    const [loading, setLoading] = useState(true);
 
     useEffect (()=> {
         const db = getFirestore()
@@ -23,31 +26,24 @@ const ItemListContainer = () => {
     
     const filtrarProductos = productos.filter((producto) => producto.category === category)
 
-    console.log(productos)
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false);
+        }, 1000);
+    }, []);
+
     
     return (
-        <div>
-
-            {category ? <ItemList productos={filtrarProductos} /> : <ItemList productos={productos} />}
-        </div>
+        <>
+            {
+                loading ? 
+                <Loader/> 
+                :
+                
+                (category ? <ItemList productos={filtrarProductos} /> : <ItemList productos={productos} />)
+            }
+        </>
     )
 }
 
 export default ItemListContainer
-
-// const traerProductos = new Promise((resolve, reject) => {
-//     if (productos.length > 0) {
-//         setTimeout(() => {
-//             resolve(productos);
-//         }, 2000);
-//     } else {
-//         reject(new Error("No hay datos disponibles"));
-//     }
-// })
-
-// traerProductos
-//     .then((res) => {
-//     })
-//     .catch((error) => {
-//         console.log(error);
-//     });

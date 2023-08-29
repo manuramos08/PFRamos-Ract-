@@ -18,16 +18,18 @@ const Cart = () => {
         return item;
     }, []);
 
-    const totalPrice = contadorItems.reduce((total, producto) => total + producto.precio * producto.count, 0);
+    const precioTotal = contadorItems.reduce((total, producto) => total + producto.precio * producto.count, 0);
 
     return (
-        <div className="carrito">
+        <div className="divTablaCarrito">
             {contadorItems.length === 0 ?
                 <>
-                    <h2 className="pCarrito">Tu carrito esta vacio</h2>
-                    <Link to={`/`}>
-                        <Button className='botonCard'>Volver al catálogo</Button>
-                    </Link>
+                    <h1 className="h1Carrito">Tu carrito esta vacio.</h1>
+                    <div className='divVolver'>
+                        <Link to={`/`}>
+                            <Button className='botonVolver' size="lg">Volver al catálogo</Button>
+                        </Link>
+                    </div>
                 </>
                 :
                 <>
@@ -47,36 +49,38 @@ const Cart = () => {
                                     <td className="tdCarrito">{"$ " + (producto.precio * producto.count)}</td>
                                     <td className="tdCarrito">
                                         <button
-                                            className="btnDelete"
+                                            className="btnEliminar"
                                             onClick={() => {
                                                 const updatedCart = cart.filter(item => item.id !== producto.id);
                                                 setCart(updatedCart);
                                             }}
                                         >
-                                            Delete
+                                            Eliminar
                                         </button>
                                     </td>
                                 </tr>
                             ))}
                         </tbody>
-                        <tfoot>
-                            <tr>
-                                <td className="tdCarrito">Total</td>
-                                <td className="tdCarrito">{"$ " + totalPrice}</td>
+                        <tfoot className='tFoot'>
+                            <tr className='trFoot'>
+                                <td className="tdTotal">Total</td>
+                                <td className="tdCarrito"></td>
+                                <td className="tdTotal">{"$ " + precioTotal}</td>
                                 <td className="tdCarrito">
                                     <button
-                                        className="btnClear"
-                                        onClick={() => setCart([])}
-                                    >
-                                        Clear Cart
+                                        className="btnVaciar"
+                                        onClick={() => setCart([])}>
+                                        Vaciar <br /> carrito
                                     </button>
                                 </td>
                             </tr>
                         </tfoot>
                     </table>
-                    <Link to={`/checkout`}>
-                        <Button className='botonCard'>Checkout</Button>
-                    </Link>
+                    <div className='divFinalizar'>
+                        <Link to={`/checkout`}>
+                            <Button className='botonFinalizar'>Finalizar compra</Button>
+                        </Link>
+                    </div>
                 </>
             }
         </div>

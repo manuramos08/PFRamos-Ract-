@@ -1,20 +1,21 @@
-import React from 'react'
-// import Button from 'react-bootstrap/Button';
-// import Card from 'react-bootstrap/Card';
-import { Container, Card, Button, Row, Col } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 
-const Item = ({ title, description, category, id }) => {
+const Item = ({ title, description, id, img }) => {
+
+
+
     return (
-        <>
+        <div > 
             <Card style={{ width: '18rem' }}
                 text={"warning"}
                 bg={"primary"}
                 className='cardProductos'>
-                <Card.Body>
+                <Card.Body className='cardBodyProductos'> 
                     <Card.Title>{title}</Card.Title>
-                    <Card.Text>
+                    <Card.Img variant="top" src={img} className='imgCard'/>
+                    <Card.Text className='textCard'>
                         {description}
                     </Card.Text>
                     <Link to={`/item/${id}`}>
@@ -22,7 +23,7 @@ const Item = ({ title, description, category, id }) => {
                     </Link>
                 </Card.Body>
             </Card>
-        </>
+        </div>
     )
 }
 

@@ -29,13 +29,13 @@ function NavBar() {
                                 Clarificadores
                             </Link>
                         </Nav.Link>
-                        <NavDropdown title="Cloro" id="basic-nav-dropdown" className="custom-dropdown" menuVariant="dark">
-                            <NavDropdown.Item className="hola" href="#action/3.1">
+                        <NavDropdown title="Cloro" id="basic-nav-dropdown" className="custom-dropdown, navlink" menuVariant="dark">
+                            <NavDropdown.Item className="navlink" href="#action/3.1">
                                 <Link to={"/category/cloropastillas"}>
                                     En pastillas
                                 </Link>
                             </NavDropdown.Item>
-                            <NavDropdown.Item className="hola" href="#action/3.2">
+                            <NavDropdown.Item className="navlink" href="#action/3.2">
                                 <Link to={"/category/clorogranulado"}>
                                     Granulado
                                 </Link>
